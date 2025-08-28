@@ -9,4 +9,4 @@ requests==2.31.0
 python-multipart==0.0.6
 pip>=24.0
 setuptools>=70.0
-wheel
+wheel>=0.41.0
