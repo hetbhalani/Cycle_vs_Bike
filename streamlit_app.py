@@ -2,6 +2,8 @@ import streamlit as st
 from PIL import Image
 import requests
 
+BACKEND_URL = 'https://cycle-vs-bike.onrender.com'
+
 st.title("Cycle vs Bike Classifier")
 
 img = st.file_uploader(
@@ -16,7 +18,7 @@ if img is not None:
         st.image(image, use_container_width=True)
 
         send_img = {"file": (img.name, img.getvalue(), img.type)}
-        response = requests.post("http://127.0.0.1:8000/predict", files=send_img)
+        response = requests.post(BACKEND_URL, files=send_img)
         
         if response.status_code == 200:
             result = response.json()
